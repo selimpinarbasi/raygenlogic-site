@@ -1,0 +1,282 @@
+<title>Ray Gen Logic Gizlilik Politikası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#FBFAF7; --panel:#FFFFFF; --line:#E4E0D8; --line2:#D2CCC0;
+  --text:#1A1726; --body:#3E3853; --muted:#6B637E; --dim:#8E86A0;
+  --accent:#8B5CF6; --ray:#B8860B; --ok:#0F7B4F; --no:#A8324A;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Figtree",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D0B14; --panel:#17131F; --line:#2A2438; --line2:#3A3250;
+    --text:#F4F2F8; --body:#CFC8DC; --muted:#A79FBA; --dim:#7F7794;
+    --accent:#C4A0FF; --ray:#FFD84D; --ok:#5CFF9E; --no:#FF8FA3;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D0B14; --panel:#17131F; --line:#2A2438; --line2:#3A3250;
+  --text:#F4F2F8; --body:#CFC8DC; --muted:#A79FBA; --dim:#7F7794;
+  --accent:#C4A0FF; --ray:#FFD84D; --ok:#5CFF9E; --no:#FF8FA3;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--sans);
+  font-size:16px;line-height:1.68;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px 100px}
+
+header{padding:58px 0 0}
+.badge{display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 16px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5.5vw,42px);
+  line-height:1.12;letter-spacing:-.015em;color:var(--text);margin:0 0 12px;text-wrap:balance}
+.meta{color:var(--dim);font-size:14px;margin:0}
+
+.langbar{display:flex;gap:8px;margin:26px 0 0;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.langbar button{font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  padding:7px 16px;border-radius:999px;border:1px solid var(--line2);
+  background:transparent;color:var(--muted);transition:.15s}
+.langbar button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.langbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.intro{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;margin:30px 0 0}
+.intro p{margin:0;color:var(--body)}
+.intro p+p{margin-top:12px}
+.intro b{color:var(--text);font-weight:600}
+
+h2{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:-.01em;
+  color:var(--text);margin:46px 0 4px;line-height:1.25}
+h3{font-size:15px;font-weight:700;color:var(--text);margin:26px 0 6px;
+  letter-spacing:.01em}
+p{margin:12px 0}
+ul{margin:12px 0;padding-left:22px}
+li{margin-bottom:9px}
+li::marker{color:var(--dim)}
+b,strong{color:var(--text);font-weight:600}
+a{color:var(--accent)}
+
+.plat{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:2px 8px;border-radius:5px;margin-right:7px;vertical-align:1px;
+  border:1px solid var(--line2);color:var(--muted);white-space:nowrap}
+.plat.ios{color:var(--accent);border-color:var(--accent)}
+
+.never{border-left:3px solid var(--ok);background:var(--panel);
+  border-radius:0 12px 12px 0;padding:18px 22px;margin:22px 0}
+.never h3{margin-top:0;color:var(--ok)}
+.never ul{margin-bottom:0}
+
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);font-weight:700}
+td b{font-weight:600}
+
+.contact{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;margin-top:20px}
+.contact p{margin:0}
+.fill{background:#FFD84D33;border:1px dashed var(--ray);color:var(--text);
+  padding:2px 8px;border-radius:5px;font-weight:600;font-size:14.5px}
+
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
+  color:var(--dim);font-size:13.5px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="badge">Ray Gen Logic</p>
+  <h1 data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</h1>
+  <p class="meta" data-tr="Son güncelleme: 31 Ağustos 2026" data-en="Last updated: 31 August 2026">Son güncelleme: 31 Ağustos 2026</p>
+  <div class="langbar">
+    <button id="btn-tr" aria-pressed="true">Türkçe</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<!-- ══════════ TÜRKÇE ══════════ -->
+<main id="tr">
+  <div class="intro">
+    <p>Ray Gen Logic bir bulmaca oyunudur. <b>Hesap açman gerekmiyor, giriş yapmıyorsun.</b> Adını, e-posta adresini ya da telefon numaranı hiçbir zaman istemiyoruz ve toplamıyoruz.</p>
+    <p>Topladığımız tek şey, oyunun neresinde zorlandığını anlamamıza yarayan <b>anonim kullanım istatistikleri</b> — ve bunları ancak sen izin verirsen topluyoruz.</p>
+  </div>
+
+  <h2>Ne topluyoruz</h2>
+
+  <h3>Oyun kullanım verileri</h3>
+  <p>Uygulama içindeki izin ekranında <b>onay verirsen</b> şunları ölçüyoruz:</p>
+  <ul>
+    <li>Hangi bölümü başlattığın, tamamladığın, kaybettiğin ya da bıraktığın</li>
+    <li>Bir bölümde kaç atış kullandığın ve ne kadar sürdüğün</li>
+    <li>Hangi güçlendirmeyi satın aldığın ve kullandığın</li>
+    <li>Kazandığın coin miktarı, mağazayı açtığın anlar</li>
+    <li>Can durumun ve günlük bonus kullanımın</li>
+    <li>Profil resmini ya da adını değiştirip değiştirmediğin — <b>yalnızca değiştirdiğin bilgisi</b>, seçtiğin ad asla gönderilmez</li>
+  </ul>
+  <p>Bu veriler adına değil, uygulamanın cihazında oluşturduğu <b>rastgele bir kimliğe</b> bağlanır. Bu kimlik senin gerçek kimliğinle eşleştirilemez ve uygulamayı silersen kaybolur.</p>
+
+  <h3>Satın almalar ve reklamlar</h3>
+  <p><span class="plat ios">iOS</span> Uygulama içi satın alma yaparsan hangi ürünü aldığın ve fiyatı kaydedilir. Ödeme bilgilerin bize <b>hiç ulaşmaz</b> — ödemeyi tamamen Apple işler.</p>
+  <p><span class="plat ios">iOS</span> Reklamlar Google AdMob üzerinden gösterilir. AdMob kendi işleyişi için IP adresine dayalı <b>kaba konum</b> (şehir düzeyinde, GPS değil) ve teknik tanılama verisi toplayabilir.</p>
+  <p><span class="plat ios">iOS</span> Uygulama açıldıktan sonra Apple'ın kendi ekranıyla ayrıca <b>izleme izni</b> sorulur. İzin verirsen AdMob, reklamları kişiselleştirmek için cihazının reklam kimliğini (IDFA) kullanabilir. <b>İzin vermezsen bu kimlik kullanılmaz</b> ve reklamlar yine gösterilir, sadece kişiselleştirilmez.</p>
+
+  <div class="never">
+    <h3>Ne toplamıyoruz</h3>
+    <ul>
+      <li><b>Adın, e-postan, telefonun, adresin</b> — hiçbiri istenmiyor, hiçbiri gönderilmiyor</li>
+      <li><b>Oyundaki takma adın</b> — yalnızca senin cihazında saklanır, dışarı çıkmaz</li>
+      <li><b>Rehberin, fotoğrafların, dosyaların</b> — uygulama bunlara hiç erişmiyor</li>
+      <li><b>Hassas konumun</b> — GPS izni istemiyoruz</li>
+      <li><span class="plat">Android</span> <b>Reklam kimliği (Advertising ID)</b> — Android sürümünde bu tamamen kapalıdır ve ilgili izin uygulamadan çıkarılmıştır</li>
+    </ul>
+  </div>
+
+  <h2>İzin: sen karar veriyorsun</h2>
+  <p>Oyunu ilk açtığında karşına bir izin ekranı gelir. <b>"Hayır, teşekkürler" dersen hiçbir kullanım verisi toplanmaz</b> ve oyun tamamen normal çalışmaya devam eder — hiçbir özellik kapanmaz.</p>
+  <p>Kararını sonradan değiştirebilirsin: <b>Ayarlar → Kullanım istatistikleri</b> anahtarını istediğin an kapatabilirsin. Kapattığın andan itibaren veri gönderimi durur.</p>
+  <p><span class="plat ios">iOS</span> Reklam izleme izni bundan ayrıdır ve Apple'ın kendi ekranından sorulur. Onu da iPhone'unun <b>Ayarlar → Gizlilik ve Güvenlik → İzleme</b> bölümünden dilediğin zaman geri alabilirsin.</p>
+
+  <h2>Verileri kimler işliyor</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Hizmet</th><th>Ne için</th><th>Nerede</th></tr></thead>
+    <tbody>
+      <tr><td><b>Google Firebase Analytics</b></td><td>Oyun kullanım istatistikleri</td><td>iOS ve Android</td></tr>
+      <tr><td><b>Google AdMob</b></td><td>Reklam gösterimi</td><td>Yalnız iOS</td></tr>
+      <tr><td><b>Apple</b></td><td>Uygulama içi satın alma</td><td>Yalnız iOS</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Bu şirketlerin kendi gizlilik politikaları geçerlidir: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a>.</p>
+
+  <h2>Veriler ne kadar saklanıyor</h2>
+  <p>Kullanım istatistikleri <b>14 ay</b> saklanır, sonra otomatik olarak silinir. Uygulamayı cihazından kaldırdığında cihazındaki tüm oyun verisi (ilerlemen, coinlerin, takma adın) da silinir.</p>
+
+  <h2>Haklarını nasıl kullanırsın</h2>
+  <p>Senden kişisel bilgi toplamadığımız ve hesabın olmadığı için silinecek bir hesap kaydın da yok. Yine de:</p>
+  <ul>
+    <li><b>Toplamayı durdurmak için:</b> Ayarlar → Kullanım istatistikleri anahtarını kapat</li>
+    <li><b>Cihazındaki her şeyi silmek için:</b> Ayarlar → İlerlemeyi sıfırla, ya da uygulamayı kaldır</li>
+    <li><b>Soruların için:</b> aşağıdaki adresten bize yaz</li>
+  </ul>
+
+  <h2>Çocuklar</h2>
+  <p>Ray Gen Logic çocuklara yönelik bir uygulama değildir ve <b>13 yaşından küçük kullanıcılardan bilerek veri toplamaz.</b> Çocuğunuzun bize veri gönderdiğini düşünüyorsanız bize yazın, silelim.</p>
+
+  <h2>Değişiklikler</h2>
+  <p>Bu politika değişirse yukarıdaki tarih güncellenir. Uygulamanın topladığı veriler <b>önemli ölçüde</b> değişirse, uygulama içinde yeniden izin isteriz — sessizce genişletmeyiz.</p>
+
+  <h2>İletişim</h2>
+  <div class="contact">
+    <p>Gizlilikle ilgili her soru için: <a href="mailto:privacy@raygenlogic.com">privacy@raygenlogic.com</a></p>
+  </div>
+</main>
+
+<!-- ══════════ ENGLISH ══════════ -->
+<main id="en" hidden>
+  <div class="intro">
+    <p>Ray Gen Logic is a puzzle game. <b>No account is needed and there is no sign-in.</b> We never ask for or collect your name, email address, or phone number.</p>
+    <p>The only thing we collect is <b>anonymous usage statistics</b> that help us see where players get stuck — and only if you allow it.</p>
+  </div>
+
+  <h2>What we collect</h2>
+
+  <h3>Gameplay usage data</h3>
+  <p>If you <b>give consent</b> on the in-app permission screen, we measure:</p>
+  <ul>
+    <li>Which level you start, complete, fail, or quit</li>
+    <li>How many shots you used on a level and how long it took</li>
+    <li>Which power-ups you buy and use</li>
+    <li>Coins earned, and when you open the store</li>
+    <li>Your lives status and daily bonus claims</li>
+    <li>Whether you changed your avatar or nickname — <b>only the fact that it changed</b>; the nickname text is never sent</li>
+  </ul>
+  <p>This data is tied to a <b>random identifier</b> generated on your device, not to your name. It cannot be matched to your real identity and it is gone when you delete the app.</p>
+
+  <h3>Purchases and ads</h3>
+  <p><span class="plat ios">iOS</span> If you make an in-app purchase, we record which product and its price. Your payment details <b>never reach us</b> — Apple handles payment entirely.</p>
+  <p><span class="plat ios">iOS</span> Ads are served through Google AdMob. For its own operation, AdMob may collect <b>coarse location</b> derived from your IP address (city level, not GPS) and technical diagnostic data.</p>
+  <p><span class="plat ios">iOS</span> Apple's own screen separately asks for <b>tracking permission</b>. If you allow it, AdMob may use your device's advertising identifier (IDFA) to personalise ads. <b>If you decline, that identifier is not used</b> — ads are still shown, just not personalised.</p>
+
+  <div class="never">
+    <h3>What we do not collect</h3>
+    <ul>
+      <li><b>Your name, email, phone number, or address</b> — never requested, never sent</li>
+      <li><b>Your in-game nickname</b> — stored only on your device, never transmitted</li>
+      <li><b>Your contacts, photos, or files</b> — the app never accesses them</li>
+      <li><b>Your precise location</b> — we do not request GPS permission</li>
+      <li><span class="plat">Android</span> <b>Advertising ID</b> — fully disabled on Android, and the related permission is removed from the app</li>
+    </ul>
+  </div>
+
+  <h2>Consent is yours</h2>
+  <p>A permission screen appears the first time you open the game. <b>If you choose "No thanks", no usage data is collected at all</b> and the game keeps working exactly the same — nothing is locked or reduced.</p>
+  <p>You can change your mind later: turn off <b>Settings → Usage statistics</b> at any time. Collection stops immediately.</p>
+  <p><span class="plat ios">iOS</span> Ad tracking permission is separate and asked through Apple's own screen. You can withdraw it any time under <b>Settings → Privacy &amp; Security → Tracking</b> on your iPhone.</p>
+
+  <h2>Who processes the data</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Service</th><th>Purpose</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td><b>Google Firebase Analytics</b></td><td>Gameplay usage statistics</td><td>iOS and Android</td></tr>
+      <tr><td><b>Google AdMob</b></td><td>Serving ads</td><td>iOS only</td></tr>
+      <tr><td><b>Apple</b></td><td>In-app purchases</td><td>iOS only</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Their own privacy policies apply: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a>.</p>
+
+  <h2>How long data is kept</h2>
+  <p>Usage statistics are retained for <b>14 months</b> and then deleted automatically. When you remove the app from your device, all local game data (progress, coins, nickname) is deleted with it.</p>
+
+  <h2>Exercising your rights</h2>
+  <p>Because we collect no personal information and you have no account, there is no account record to delete. Even so:</p>
+  <ul>
+    <li><b>To stop collection:</b> turn off Settings → Usage statistics</li>
+    <li><b>To erase everything on your device:</b> Settings → Reset progress, or uninstall the app</li>
+    <li><b>For any question:</b> write to us at the address below</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>Ray Gen Logic is not directed at children and <b>does not knowingly collect data from users under 13.</b> If you believe your child has sent us data, contact us and we will delete it.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the date above is updated. If what the app collects changes <b>materially</b>, we will ask for consent again inside the app — we will not expand collection silently.</p>
+
+  <h2>Contact</h2>
+  <div class="contact">
+    <p>For any privacy question: <a href="mailto:privacy@raygenlogic.com">privacy@raygenlogic.com</a></p>
+  </div>
+</main>
+
+<footer>
+  <span data-tr="Ray Gen Logic — bağımsız olarak geliştirilmiştir." data-en="Ray Gen Logic — independently developed.">Ray Gen Logic — bağımsız olarak geliştirilmiştir.</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  var tr=document.getElementById('tr'), en=document.getElementById('en');
+  var bTr=document.getElementById('btn-tr'), bEn=document.getElementById('btn-en');
+  function set(lang){
+    var isTr = lang==='tr';
+    tr.hidden=!isTr; en.hidden=isTr;
+    bTr.setAttribute('aria-pressed',isTr?'true':'false');
+    bEn.setAttribute('aria-pressed',isTr?'false':'true');
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-tr]').forEach(function(el){
+      el.textContent = isTr ? el.dataset.tr : el.dataset.en;
+    });
+    try{ localStorage.setItem('rgl-privacy-lang',lang); }catch(e){}
+  }
+  bTr.addEventListener('click',function(){set('tr')});
+  bEn.addEventListener('click',function(){set('en')});
+  var saved=null; try{ saved=localStorage.getItem('rgl-privacy-lang'); }catch(e){}
+  if(saved==='en') set('en');
+  else if(!saved && !/^tr\b/i.test(navigator.language||'')) set('en');
+})();
+</script>
