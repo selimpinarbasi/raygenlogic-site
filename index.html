@@ -373,7 +373,8 @@ function frame(tt,isStatic){
   drawNebula(ctx,W,H);
   stars.update(isStatic?0.001:0, W, H);
   stars.draw(ctx);
-  var top=[W*0.5,H*0.1], bottom=[W*0.5,H*0.72];
+  var beamX=W*0.82;
+  var top=[beamX,H*0.14], bottom=[beamX,H*0.72];
   var p=(tt%DURATION)/DURATION;
   var pulse=0.5+0.5*Math.sin(tt*4);
   if(p<0.7){
