@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Ray Gen Logic</title>
 <meta name="description" content="Aynaları yerleştir, ışını hedefe ulaştır. Bir ışın yansıtma bulmacası.">
 <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32">
@@ -72,24 +73,12 @@ h2{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-sp
 .feature h3{font-size:15px;font-weight:700;color:var(--text);margin:0 0 8px}
 .feature p{font-size:14px;line-height:1.6;color:var(--dim);margin:0}
 
-.shots{display:flex;gap:16px;overflow-x:auto;padding:8px 0 16px;margin:0 -24px;padding-left:24px;padding-right:24px;
-  scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
-.shots::-webkit-scrollbar{height:6px}
-.shots::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-.shot{flex:0 0 auto;scroll-snap-align:start}
-.shot img{display:block;width:184px;height:auto;border-radius:18px;
-  border:1px solid var(--line);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 20px 40px -20px rgba(0,0,0,.6)}
-
 .badges{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
-.badge{display:flex;align-items:center;gap:10px;padding:13px 20px;border-radius:12px;
-  background:var(--panel);border:1px solid var(--line);color:var(--dim);
-  font-size:14px;pointer-events:none;user-select:none}
-.badge svg{width:22px;height:22px;flex:none;opacity:.7}
-.badge .lines{display:flex;flex-direction:column;line-height:1.25}
-.badge .lines small{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
-.badge .lines strong{font-size:14.5px;color:var(--muted);font-weight:600}
-.badge .soon{margin-left:6px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--ray);border:1px solid rgba(255,216,77,.4);border-radius:999px;padding:2px 8px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:12px;
+  background:var(--panel);border:1px solid var(--line);color:var(--muted);
+  font-size:15px;font-weight:600;pointer-events:none;user-select:none}
+.badge .soon{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--ray);border:1px solid rgba(255,216,77,.4);border-radius:999px;padding:3px 9px}
 
 footer{border-top:1px solid var(--line);padding:36px 0 56px}
 .footlinks{display:flex;gap:20px;flex-wrap:wrap;margin:0 0 14px;font-size:13.5px}
@@ -144,16 +133,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 56px}
     </div>
   </section>
 
-  <section class="shotsec">
-    <h2 data-i18n="screenshotsTitle">Oyundan</h2>
-    <div class="shots">
-      <div class="shot"><img src="/assets/screens/menu.jpg" width="332" height="720" loading="lazy" alt="Ray Gen Logic — main menu"></div>
-      <div class="shot"><img src="/assets/screens/flight.jpg" width="332" height="720" loading="lazy" alt="Ray Gen Logic — beam in flight"></div>
-      <div class="shot"><img src="/assets/screens/win.jpg" width="332" height="720" loading="lazy" alt="Ray Gen Logic — level complete"></div>
-      <div class="shot"><img src="/assets/screens/powerups.jpg" width="332" height="720" loading="lazy" alt="Ray Gen Logic — power-up shop"></div>
-    </div>
-  </section>
-
   <section class="download">
     <h2 data-i18n="downloadTitle">İndir</h2>
     <div class="badges" id="badges"></div>
@@ -187,7 +166,7 @@ var I18N = {
     feature1Title:"Basit kurallar", feature1Body:"Dokun, aynayı döndür, ateşle. Öğrenmesi bir dakika sürer.",
     feature2Title:"Yüzlerce bölüm", feature2Body:"Kolaydan zora, her biri elle tasarlanmış bir bulmaca.",
     feature3Title:"Güçlendirmeler", feature3Body:"Takılırsan tam önizleme veya hassas nişanla yardım al.",
-    screenshotsTitle:"Oyundan", downloadTitle:"İndir", comingSoon:"Yakında",
+    downloadTitle:"İndir", comingSoon:"Yakında",
     footerTagline:"Ray Gen Logic — bağımsız olarak geliştirilmiştir.",
     privacyLinkText:"Gizlilik", supportLinkText:"Destek"
   },
@@ -198,7 +177,7 @@ var I18N = {
     feature1Title:"Simple rules", feature1Body:"Tap, rotate a mirror, fire. Takes a minute to learn.",
     feature2Title:"Hundreds of levels", feature2Body:"Easy to hard, each one hand-designed.",
     feature3Title:"Power-ups", feature3Body:"Stuck? Get a full preview or precision aim.",
-    screenshotsTitle:"From the game", downloadTitle:"Get the app", comingSoon:"Coming soon",
+    downloadTitle:"Get the app", comingSoon:"Coming soon",
     footerTagline:"Ray Gen Logic — independently developed.",
     privacyLinkText:"Privacy", supportLinkText:"Support"
   },
@@ -209,7 +188,7 @@ var I18N = {
     feature1Title:"Простые правила", feature1Body:"Коснись, поверни зеркало, выстрели. Учится за минуту.",
     feature2Title:"Сотни уровней", feature2Body:"От лёгких до сложных — каждый сделан вручную.",
     feature3Title:"Усиления", feature3Body:"Застрял? Возьми полный предпросмотр или точное прицеливание.",
-    screenshotsTitle:"Из игры", downloadTitle:"Скачать", comingSoon:"Скоро",
+    downloadTitle:"Скачать", comingSoon:"Скоро",
     footerTagline:"Ray Gen Logic — независимая разработка.",
     privacyLinkText:"Конфиденциальность", supportLinkText:"Поддержка"
   },
@@ -220,7 +199,7 @@ var I18N = {
     feature1Title:"Regras simples", feature1Body:"Toque, gire um espelho, atire. Aprende-se em um minuto.",
     feature2Title:"Centenas de fases", feature2Body:"Do fácil ao difícil, cada uma desenhada à mão.",
     feature3Title:"Power-ups", feature3Body:"Travou? Use a pré-visualização completa ou a mira de precisão.",
-    screenshotsTitle:"Direto do jogo", downloadTitle:"Baixe o app", comingSoon:"Em breve",
+    downloadTitle:"Baixe o app", comingSoon:"Em breve",
     footerTagline:"Ray Gen Logic — desenvolvido de forma independente.",
     privacyLinkText:"Privacidade", supportLinkText:"Suporte"
   },
@@ -231,7 +210,7 @@ var I18N = {
     feature1Title:"आसान नियम", feature1Body:"टैप करो, आईना घुमाओ, फायर करो। सीखने में बस एक मिनट लगता है।",
     feature2Title:"सैकड़ों लेवल", feature2Body:"आसान से मुश्किल तक, हर एक हाथ से डिज़ाइन किया गया।",
     feature3Title:"पावर-अप्स", feature3Body:"अटक गए? फुल प्रीव्यू या प्रिसिज़न एम लो।",
-    screenshotsTitle:"गेम से", downloadTitle:"ऐप डाउनलोड करो", comingSoon:"जल्द आ रहा है",
+    downloadTitle:"ऐप डाउनलोड करो", comingSoon:"जल्द आ रहा है",
     footerTagline:"Ray Gen Logic — स्वतंत्र रूप से बनाया गया।",
     privacyLinkText:"प्राइवेसी", supportLinkText:"सपोर्ट"
   }
@@ -253,11 +232,9 @@ function applyLang(lang){
 
 function renderBadges(dict){
   var el = document.getElementById('badges');
-  var appleIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12-1.14.43-2.35 1.15-3.13.8-.85 2.13-1.5 3.014-1.52zm4.243 16.94c-.61 1.42-1.34 2.83-2.43 4.19-1.05 1.3-2.15 2.6-3.83 2.63-1.63.03-2.16-.96-4.03-.96-1.87 0-2.46.93-4 1-1.6.06-2.83-1.4-3.9-2.7C.32 19.5-.9 15.4.6 12.63c.74-1.36 2.07-2.22 3.53-2.24 1.6-.03 3.12 1.08 4.1 1.08.98 0 2.83-1.33 4.77-1.14.81.03 3.09.33 4.55 2.47-.12.08-2.72 1.59-2.69 4.73.03 3.76 3.3 5.01 3.34 5.02z"/></svg>';
-  var playIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.4a1.6 1.6 0 0 0-.6 1.24v16.72c0 .5.22.94.6 1.24l9.35-9.6-9.35-9.6zM14.9 12l2.55-2.62 3.63 2.1c.68.4.68 1.34 0 1.74l-3.63 2.1L14.9 12zM4.4 21.5l9.3-8.7 2.4 2.47-9.6 5.7c-.6.36-1.4.28-2.1-.47a1.5 1.5 0 0 1-.4-.95zM4.4 2.5c0-.4.15-.72.4-.95.7-.75 1.5-.83 2.1-.47l9.6 5.7-2.4 2.47-9.7-8.75z"/></svg>';
   el.innerHTML =
-    '<span class="badge">'+appleIcon+'<span class="lines"><small>App Store</small><strong>iPhone</strong></span><span class="soon">'+dict.comingSoon+'</span></span>'+
-    '<span class="badge">'+playIcon+'<span class="lines"><small>Google Play</small><strong>Android</strong></span><span class="soon">'+dict.comingSoon+'</span></span>';
+    '<span class="badge">App Store<span class="soon">'+dict.comingSoon+'</span></span>'+
+    '<span class="badge">Google Play<span class="soon">'+dict.comingSoon+'</span></span>';
   if(STORE_LINKS.ios || STORE_LINKS.android){
     // Swap to real <a href> badges here once the apps are live.
   }

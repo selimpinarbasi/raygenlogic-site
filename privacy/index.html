@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Ray Gen Logic Gizlilik Politikası</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +29,13 @@ body{margin:0;background:var(--bg);color:var(--body);font-family:var(--sans);
 .wrap{max-width:720px;margin:0 auto;padding:0 24px 100px}
 
 header{padding:58px 0 0}
+.home{display:inline-block;font-size:13px;color:var(--muted);text-decoration:none;margin:0 0 20px}
+.home:hover{color:var(--accent)}
+.beam{width:64px;height:3px;border-radius:2px;margin:14px 0 14px;
+  background:var(--ray);box-shadow:0 0 14px 1px var(--ray)}
+.path{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.92em;
+  background:var(--line);padding:1px 6px;border-radius:4px;color:var(--text)}
+
 .badge{display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--accent);font-weight:700;margin:0 0 16px}
 h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5.5vw,42px);
@@ -88,8 +96,10 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
 
 <div class="wrap">
 <header>
+  <a class="home" href="/">← Ray Gen Logic</a>
   <p class="badge">Ray Gen Logic</p>
   <h1 data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</h1>
+  <div class="beam"></div>
   <p class="meta" data-tr="Son güncelleme: 31 Ağustos 2026" data-en="Last updated: 31 August 2026">Son güncelleme: 31 Ağustos 2026</p>
   <div class="langbar">
     <button id="btn-tr" aria-pressed="true">Türkçe</button>
@@ -136,7 +146,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
 
   <h2>İzin: sen karar veriyorsun</h2>
   <p>Oyunu ilk açtığında karşına bir izin ekranı gelir. <b>"Hayır, teşekkürler" dersen hiçbir kullanım verisi toplanmaz</b> ve oyun tamamen normal çalışmaya devam eder — hiçbir özellik kapanmaz.</p>
-  <p>Kararını sonradan değiştirebilirsin: <b>Ayarlar → Kullanım istatistikleri</b> anahtarını istediğin an kapatabilirsin. Kapattığın andan itibaren veri gönderimi durur.</p>
+  <p>Kararını sonradan değiştirebilirsin: <span class="path">Ayarlar → Kullanım istatistikleri</span> anahtarını istediğin an kapatabilirsin. Kapattığın andan itibaren veri gönderimi durur.</p>
   <p><span class="plat ios">iOS</span> Reklam izleme izni bundan ayrıdır ve Apple'ın kendi ekranından sorulur. Onu da iPhone'unun <b>Ayarlar → Gizlilik ve Güvenlik → İzleme</b> bölümünden dilediğin zaman geri alabilirsin.</p>
 
   <h2>Verileri kimler işliyor</h2>
@@ -177,7 +187,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
   <p><b>Saklanan:</b> Hiçbir şey. Hesabın olmadığı için başka bir kaydın da yok.
   Cihazındaki oyun ilerlemen zaten bizde değil — yalnız telefonunda duruyor,
   uygulamayı silersen o da gider.</p>
-  <p><b>Beklemek istemiyorsan:</b> <b>Ayarlar → Kullanım istatistikleri</b>
+  <p><b>Beklemek istemiyorsan:</b> <span class="path">Ayarlar → Kullanım istatistikleri</span>
   anahtarını kapat, toplama anında durur. Toplanmış veriler ise en geç
   <b>14 ay</b> içinde otomatik silinir.</p>
 
@@ -232,7 +242,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
 
   <h2>Consent is yours</h2>
   <p>A permission screen appears the first time you open the game. <b>If you choose "No thanks", no usage data is collected at all</b> and the game keeps working exactly the same — nothing is locked or reduced.</p>
-  <p>You can change your mind later: turn off <b>Settings → Usage statistics</b> at any time. Collection stops immediately.</p>
+  <p>You can change your mind later: turn off <span class="path">Settings → Usage statistics</span> at any time. Collection stops immediately.</p>
   <p><span class="plat ios">iOS</span> Ad tracking permission is separate and asked through Apple's own screen. You can withdraw it any time under <b>Settings → Privacy &amp; Security → Tracking</b> on your iPhone.</p>
 
   <h2>Who processes the data</h2>
@@ -273,8 +283,8 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
   <p><b>What is kept:</b> nothing. You have no account, so there is no other
   record of you. Your in-game progress was never ours — it lives on your phone
   only, and goes when you delete the app.</p>
-  <p><b>If you don't want to wait:</b> turn off <b>Settings → Usage
-  statistics</b> and collection stops immediately. Data already collected is
+  <p><b>If you don't want to wait:</b> turn off <span class="path">Settings → Usage
+  statistics</span> and collection stops immediately. Data already collected is
   deleted automatically within <b>14 months</b>.</p>
 
   <h2>Children</h2>
