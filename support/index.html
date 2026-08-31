@@ -1,0 +1,205 @@
+<title>Ray Gen Logic Destek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#FBFAF7; --panel:#FFFFFF; --line:#E4E0D8; --line2:#D2CCC0;
+  --text:#1A1726; --body:#3E3853; --muted:#6B637E; --dim:#8E86A0;
+  --accent:#8B5CF6; --ray:#B8860B; --ok:#0F7B4F; --no:#A8324A;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Figtree",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D0B14; --panel:#17131F; --line:#2A2438; --line2:#3A3250;
+    --text:#F4F2F8; --body:#CFC8DC; --muted:#A79FBA; --dim:#7F7794;
+    --accent:#C4A0FF; --ray:#FFD84D; --ok:#5CFF9E; --no:#FF8FA3;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D0B14; --panel:#17131F; --line:#2A2438; --line2:#3A3250;
+  --text:#F4F2F8; --body:#CFC8DC; --muted:#A79FBA; --dim:#7F7794;
+  --accent:#C4A0FF; --ray:#FFD84D; --ok:#5CFF9E; --no:#FF8FA3;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--body);font-family:var(--sans);
+  font-size:16px;line-height:1.68;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px 100px}
+
+header{padding:58px 0 0}
+.home{display:inline-block;font-size:13px;color:var(--muted);text-decoration:none;margin:0 0 20px}
+.home:hover{color:var(--accent)}
+.badge{display:inline-block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin:0 0 16px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5.5vw,42px);
+  line-height:1.12;letter-spacing:-.015em;color:var(--text);margin:0 0 10px;text-wrap:balance}
+.beam{width:64px;height:3px;border-radius:2px;margin:0 0 14px;
+  background:var(--ray);box-shadow:0 0 14px 1px var(--ray)}
+.sub{color:var(--dim);font-size:15.5px;margin:0}
+
+.langbar{display:flex;gap:8px;margin:26px 0 0;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.langbar button{font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;
+  padding:7px 16px;border-radius:999px;border:1px solid var(--line2);
+  background:transparent;color:var(--muted);transition:.15s}
+.langbar button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.langbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.contact{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;margin:30px 0 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.contact p{margin:0;color:var(--body)}
+.contact a.mail{font-family:var(--serif);font-weight:600;font-size:19px;color:var(--text);text-decoration:none;
+  border-bottom:1.5px solid var(--ray)}
+.contact a.mail:hover{color:var(--accent);border-color:var(--accent)}
+
+h2{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:-.01em;
+  color:var(--text);margin:46px 0 4px;line-height:1.25}
+p{margin:12px 0}
+a{color:var(--accent)}
+
+.faq{margin-top:10px}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;margin:14px 0}
+.q h3{font-size:16px;font-weight:700;color:var(--text);margin:0 0 8px;letter-spacing:-.005em}
+.q p{margin:0;color:var(--body)}
+.q p+p{margin-top:8px}
+.q b{color:var(--text);font-weight:600}
+.plat{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:2px 8px;border-radius:5px;margin-right:7px;vertical-align:1px;
+  border:1px solid var(--line2);color:var(--muted);white-space:nowrap}
+.plat.ios{color:var(--accent);border-color:var(--accent)}
+.path{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.92em;
+  background:var(--line);padding:1px 6px;border-radius:4px;color:var(--text)}
+
+.privacy-link{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;margin-top:14px}
+.privacy-link p{margin:0}
+
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
+  color:var(--dim);font-size:13.5px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <a class="home" href="/">← Ray Gen Logic</a>
+  <p class="badge">Ray Gen Logic</p>
+  <h1 data-tr="Destek" data-en="Support">Destek</h1>
+  <div class="beam"></div>
+  <p class="sub" data-tr="Sorun mu var? Önce burada ara, sonra yaz." data-en="Having an issue? Look here first, then write to us.">Sorun mu var? Önce burada ara, sonra yaz.</p>
+  <div class="langbar">
+    <button id="btn-tr" aria-pressed="true">Türkçe</button>
+    <button id="btn-en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<!-- ══════════ TÜRKÇE ══════════ -->
+<main id="tr">
+  <div class="contact">
+    <p>E-posta ile bize ulaş, elden geldiğince hızlı dönüyoruz.</p>
+    <a class="mail" href="mailto:support@raygenlogic.com">support@raygenlogic.com</a>
+  </div>
+
+  <h2>Sık sorulan sorular</h2>
+  <div class="faq">
+    <div class="q">
+      <h3>İlerlememi nasıl sıfırlarım?</h3>
+      <p><span class="path">Ayarlar → İlerlemeyi sıfırla</span>. Onay istenir; onayladığında cihazındaki tüm oyun ilerlemesi sıfırlanır.</p>
+    </div>
+    <div class="q">
+      <h3>Kullanım istatistiklerini nasıl kapatırım?</h3>
+      <p><span class="path">Ayarlar → Kullanım istatistikleri</span> anahtarını kapat. Kapattığın andan itibaren veri gönderimi durur. Detaylar için <a href="/privacy/">gizlilik politikası</a>na bak.</p>
+    </div>
+    <div class="q">
+      <h3>Canlarım nasıl yenileniyor?</h3>
+      <p>Her can <b>20 dakikada bir</b> kendiliğinden yenilenir, en fazla <b>5 cana</b> kadar. <b>"Reklamsız + 8 Can"</b> satın aldıysan tavan 8'e çıkar.</p>
+    </div>
+    <div class="q">
+      <h3>İlk bölümlerde neden can harcamıyorum?</h3>
+      <p>İlk <b>10 bölüm</b> can harcamadan oynanır — oyunu tanımadan canların bitmesini istemedik.</p>
+    </div>
+    <div class="q">
+      <h3>Satın aldıklarımı nasıl geri yüklerim?</h3>
+      <p><span class="plat ios">iOS</span> Mağaza ekranındaki <b>"Satın alımları geri yükle"</b> düğmesine dokun. Apple hesabına bağlı satın almaların geri gelir.</p>
+    </div>
+    <div class="q">
+      <h3>Bir bölüm çözülemiyor gibi geliyor</h3>
+      <p>Takılırsan <b>"Tam önizleme"</b> güçlendirmesi (30 coin) bir atış boyunca yolun tamamını gösterir. <b>"Bölüm atla"</b> (75 coin) bölümü geçer, ama coin ödülü vermez.</p>
+    </div>
+  </div>
+
+  <h2>Gizlilik</h2>
+  <div class="privacy-link">
+    <p>Hangi veriyi topladığımızı, neden topladığımızı ve nasıl sileceğini <a href="/privacy/">gizlilik politikamızda</a> anlatıyoruz.</p>
+  </div>
+</main>
+
+<!-- ══════════ ENGLISH ══════════ -->
+<main id="en" hidden>
+  <div class="contact">
+    <p>Email us and we'll get back to you as soon as we can.</p>
+    <a class="mail" href="mailto:support@raygenlogic.com">support@raygenlogic.com</a>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <div class="faq">
+    <div class="q">
+      <h3>How do I reset my progress?</h3>
+      <p><span class="path">Settings → Reset progress</span>. You'll be asked to confirm; once you do, all game progress on your device is reset.</p>
+    </div>
+    <div class="q">
+      <h3>How do I turn off usage statistics?</h3>
+      <p>Turn off <span class="path">Settings → Usage statistics</span>. Data stops being sent from that moment on. See our <a href="/privacy/">privacy policy</a> for details.</p>
+    </div>
+    <div class="q">
+      <h3>How do lives regenerate?</h3>
+      <p>Each life refills automatically every <b>20 minutes</b>, up to a maximum of <b>5</b>. If you own <b>"Ad-free + 8 Lives"</b>, the cap goes up to 8.</p>
+    </div>
+    <div class="q">
+      <h3>Why don't the first levels cost lives?</h3>
+      <p>The first <b>10 levels</b> don't cost lives — we didn't want you running out before you'd even learned the game.</p>
+    </div>
+    <div class="q">
+      <h3>How do I restore my purchases?</h3>
+      <p><span class="plat ios">iOS</span> On the Store screen, tap <b>"Restore purchases"</b>. Purchases tied to your Apple account are restored.</p>
+    </div>
+    <div class="q">
+      <h3>A level seems unsolvable</h3>
+      <p>If you're stuck, the <b>"Full preview"</b> power-up (30 coins) shows the entire path for one shot. <b>"Skip level"</b> (75 coins) clears the level, but without a coin reward.</p>
+    </div>
+  </div>
+
+  <h2>Privacy</h2>
+  <div class="privacy-link">
+    <p>What we collect, why, and how to have it deleted — all in our <a href="/privacy/">privacy policy</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <span data-tr="Ray Gen Logic — bağımsız olarak geliştirilmiştir." data-en="Ray Gen Logic — independently developed.">Ray Gen Logic — bağımsız olarak geliştirilmiştir.</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  var tr=document.getElementById('tr'), en=document.getElementById('en');
+  var bTr=document.getElementById('btn-tr'), bEn=document.getElementById('btn-en');
+  function set(lang){
+    var isTr = lang==='tr';
+    tr.hidden=!isTr; en.hidden=isTr;
+    bTr.setAttribute('aria-pressed',isTr?'true':'false');
+    bEn.setAttribute('aria-pressed',isTr?'false':'true');
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-tr]').forEach(function(el){
+      el.textContent = isTr ? el.dataset.tr : el.dataset.en;
+    });
+    try{ localStorage.setItem('rgl-support-lang',lang); }catch(e){}
+  }
+  bTr.addEventListener('click',function(){set('tr')});
+  bEn.addEventListener('click',function(){set('en')});
+  var saved=null; try{ saved=localStorage.getItem('rgl-support-lang'); }catch(e){}
+  if(saved==='en') set('en');
+  else if(!saved && !/^tr\b/i.test(navigator.language||'')) set('en');
+})();
+</script>
