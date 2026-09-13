@@ -2,7 +2,7 @@
   "payload": {
     "ads": {
       "interstitialEnabled": true,
-      "realUnitsEnabled": false,
+      "realUnitsEnabled": true,
       "rewardedEnabled": true
     },
     "message": null,
@@ -16,5 +16,5 @@
     },
     "version": 1
   },
-  "sig": "mzNNrkZDzpEOZ+HTbjvOKJrnNxFDgW198uFCzY6hk6sMfZgT/xIjbmfRieyCoTxNm/VCzGu6lorUG8K/2x+lCQ=="
+  "sig": "6cGrVzAoKCe/RIkEfO+BuBQd/B/E2NKVGwnwgOyJPRBlzZ+J5RrZZ7H5B/tm+HMFSmt0DJ7Xh70oogyapeYfCA=="
 }
