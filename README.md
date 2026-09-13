@@ -10,18 +10,29 @@ Ray Gen Logic'in tanıtım sitesi. Statik HTML/CSS/JS, build adımı yok. GitHub
 
 ## config/v1.json
 
-Bu dosyayı **Selim GitHub üzerinden doğrudan düzenler** (repo'yu GitHub'da açıp dosyayı edit edip commit etmesi yeterli — kod değişikliği gerekmez). Oyun istemcileri bunu çalışma zamanında okuyup davranış değiştiriyor:
+Bu dosya artık Ed25519 ile **imzalı bir zarf**: `{"payload": {...}, "sig": "..."}`. GitHub'da elle düzenlenmez — imza, payload'ın byte'larına bağlı olduğu için tek bir boşluk/satır sonu farkı bile imzayı geçersiz kılar.
+
+**Güncelleme akışı** (oyun reposunda, `raygenlogic/tools/remote-config-sign.py`):
+
+```
+tools/remote-config-sign.py sign --key ~/raygen-config-private.pem --payload payload.json --out v1.json
+```
+
+Bu komutun ürettiği `v1.json` çıktısı **olduğu gibi, byte byte** buraya (`config/v1.json`) kopyalanır — JSON'u yeniden biçimlendirme, pretty-print etme, tek bir alanı bile elle değiştirme. Kopyalama sonrası kaynakla hedefin hash'i (`shasum -a 256`) karşılaştırılarak doğrulanmalı.
+
+`payload` alanlarının anlamı:
 
 | Alan | Anlamı |
 |---|---|
-| `version` | Şema sürümü, istemci uyumluluğu için |
-| `ads.realUnitsEnabled` | `false` iken test reklam birimleri kullanılır (gerçek AdMob ID'leri yerine) |
-| `ads.interstitialEnabled` / `ads.rewardedEnabled` | O reklam türünü tamamen açar/kapatır |
-| `offers.starterPackEnabled` / `offers.adFreeOfferEnabled` | İlgili mağaza teklifinin görünürlüğü |
-| `minSupportedBuild.android` / `.ios` | Bu build numarasının altındaki istemcilere "güncelle" uyarısı |
-| `message` | `null` değilse istemcide gösterilecek genel duyuru metni |
+| `payload.version` | Şema sürümü, istemci uyumluluğu için |
+| `payload.ads.realUnitsEnabled` | `false` iken test reklam birimleri kullanılır (gerçek AdMob ID'leri yerine) |
+| `payload.ads.interstitialEnabled` / `.rewardedEnabled` | O reklam türünü tamamen açar/kapatır |
+| `payload.offers.starterPackEnabled` / `.adFreeOfferEnabled` | İlgili mağaza teklifinin görünürlüğü |
+| `payload.minSupportedBuild.android` / `.ios` | Bu build numarasının altındaki istemcilere "güncelle" uyarısı |
+| `payload.message` | `null` değilse istemcide gösterilecek genel duyuru metni |
+| `sig` | `payload`in Ed25519 imzası (base64) — özel anahtar bu repoda hiç bulunmaz |
 
-Canlı adres: `https://raygenlogic.com/config/v1.json` — `access-control-allow-origin: *` ile servis ediliyor, istemci doğrudan fetch edebilir.
+Canlı adres: `https://raygenlogic.com/config/v1.json` — `access-control-allow-origin: *` ile servis ediliyor, istemci doğrudan fetch edebilir. Cache `max-age=600` (GitHub Pages varsayılanı, dosya bazında özelleştirilemiyor) — istemci tarafı `?v=<dakika kovası>` ile bayatlığı 1 dakikayla sınırlıyor.
 
 ## app-ads.txt
 

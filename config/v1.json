@@ -1,1 +1,20 @@
-{"version":1,"ads":{"realUnitsEnabled":false,"interstitialEnabled":true,"rewardedEnabled":true},"offers":{"starterPackEnabled":false,"adFreeOfferEnabled":true},"minSupportedBuild":{"android":9,"ios":1},"message":null}
+{
+  "payload": {
+    "ads": {
+      "interstitialEnabled": true,
+      "realUnitsEnabled": false,
+      "rewardedEnabled": true
+    },
+    "message": null,
+    "minSupportedBuild": {
+      "android": 9,
+      "ios": 1
+    },
+    "offers": {
+      "adFreeOfferEnabled": true,
+      "starterPackEnabled": false
+    },
+    "version": 1
+  },
+  "sig": "mzNNrkZDzpEOZ+HTbjvOKJrnNxFDgW198uFCzY6hk6sMfZgT/xIjbmfRieyCoTxNm/VCzGu6lorUG8K/2x+lCQ=="
+}
