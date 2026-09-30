@@ -1,10 +1,12 @@
+<!doctype html>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ray Gen Logic</title>
-<meta name="description" content="Aynaları yerleştir, ışını hedefe ulaştır. Bir ışın yansıtma bulmacası.">
+<meta name="description" content="A beam puzzle you learn in one tap and cannot put down. Free on the App Store and Google Play.">
 <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <meta property="og:title" content="Ray Gen Logic">
-<meta property="og:description" content="Aynaları yerleştir, ışını hedefe ulaştır. Bir ışın yansıtma bulmacası.">
+<meta property="og:description" content="A beam puzzle you learn in one tap and cannot put down. Free on the App Store and Google Play.">
 <meta property="og:image" content="https://raygenlogic.com/assets/icons/og-image.png">
 <meta property="og:url" content="https://raygenlogic.com/">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,12 +75,13 @@ h2{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-sp
 .feature h3{font-size:15px;font-weight:700;color:var(--text);margin:0 0 8px}
 .feature p{font-size:14px;line-height:1.6;color:var(--dim);margin:0}
 
-.badges{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
-.badge{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:12px;
-  background:var(--panel);border:1px solid var(--line);color:var(--muted);
-  font-size:15px;font-weight:600;pointer-events:none;user-select:none}
-.badge .soon{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
-  color:var(--ray);border:1px solid rgba(255,216,77,.4);border-radius:999px;padding:3px 9px}
+/* Official store badges, unmodified. --bh is the VISIBLE badge height; the Google PNGs carry
+   transparent padding, so they are drawn taller and pulled back with negative margins
+   (renderBadges sets the numbers per file) to keep both badges the same visible height. */
+.badges{--bh:50px;display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:8px}
+.badge{display:inline-flex;line-height:0;border-radius:9px}
+.badge img{display:block}
+.badge:focus-visible{outline:2px solid var(--ray);outline-offset:4px}
 
 footer{border-top:1px solid var(--line);padding:36px 0 56px}
 .footlinks{display:flex;gap:20px;flex-wrap:wrap;margin:0 0 14px;font-size:13.5px}
@@ -93,7 +96,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 56px}
     <select id="langpick" aria-label="Language">
       <option value="tr">Türkçe</option>
       <option value="en">English</option>
-      <option value="ru">Русский</option>
       <option value="ptbr">Português (BR)</option>
       <option value="hi">हिन्दी</option>
     </select>
@@ -104,31 +106,31 @@ footer{border-top:1px solid var(--line);padding:36px 0 56px}
   <canvas id="heroCanvas"></canvas>
   <div class="hero-content">
     <h1 class="wordmark">RAY<br>GEN<br>LOGIC</h1>
-    <p class="tagline" data-i18n="tagline">Işını yansıt, hedefi vur.</p>
+    <p class="tagline" data-i18n="tagline">Işını yansıt, hedefi vur</p>
   </div>
   <div class="scrollcue" aria-hidden="true"></div>
 </div>
 
 <div class="wrap">
   <section class="about">
-    <p class="eyebrow">Ray Gen Logic</p>
-    <h2 data-i18n="aboutTitle">Bir ışın yansıtma bulmacası</h2>
-    <p data-i18n="aboutBody">Aynaları yerleştir, ışını hedefe ulaştır. Her bölüm tek bir doğru çözümle seni bekliyor — bazen düz bakış yeter, bazen ışını üç kez sektirmen gerekir.</p>
+    <p class="eyebrow" lang="en">Ray Gen Logic</p>
+    <h2 data-i18n="aboutTitle">Işını ateşle, aynalardan yansıt, hedefi vur</h2>
+    <p data-i18n="aboutBody">Ray Gen Logic bir açı, yansıma ve zamanlama bulmacası. Her bölüm sana küçük bir sahne gösterir: bir ışın kaynağı, birkaç ayna, belki bir iki portal ve parlayan bir hedef halkası. Joystick'i çevirip açıyı seçersin, bırakırsın ve ışının yolculuğunu izlersin. Işın dokunduğu her aynadan seker, portala girip başka yerden çıkar ve ya hedefe oturur ya da yanından geçip gider. Süre yok, acele yok. Düşün, nişan al, bırak.</p>
   </section>
 
   <section class="feat">
     <div class="features">
       <div class="feature">
-        <h3 data-i18n="feature1Title">Basit kurallar</h3>
-        <p data-i18n="feature1Body">Dokun, aynayı döndür, ateşle. Öğrenmesi bir dakika sürer.</p>
+        <h3 data-i18n="feature1Title">Nasıl oynanır</h3>
+        <p data-i18n="feature1Body">Joystick'i çevirerek açıyı ayarla. Bırak ve ateşle. Işın kendi başına uçar, aynaya çarptıkça seker.</p>
       </div>
       <div class="feature">
-        <h3 data-i18n="feature2Title">Yüzlerce bölüm</h3>
-        <p data-i18n="feature2Body">Kolaydan zora, her biri elle tasarlanmış bir bulmaca.</p>
+        <h3 data-i18n="feature2Title">Binlerce bölüm</h3>
+        <p data-i18n="feature2Body">Bölüm paketi yumuşak başlar ve seninle büyür. İlk bölümler her seferinde tek bir fikir öğretir.</p>
       </div>
       <div class="feature">
-        <h3 data-i18n="feature3Title">Güçlendirmeler</h3>
-        <p data-i18n="feature3Body">Takılırsan tam önizleme veya hassas nişanla yardım al.</p>
+        <h3 data-i18n="feature3Title">İhtiyacın olduğunda güçler</h3>
+        <p data-i18n="feature3Body">Hassas nişan · Tam önizleme · Ekstra atış</p>
       </div>
     </div>
   </section>
@@ -146,7 +148,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 56px}
       <a href="/support/" data-i18n="supportLinkText">Destek</a>
       <a href="mailto:support@raygenlogic.com">support@raygenlogic.com</a>
     </div>
-    <p class="foottag" data-i18n="footerTagline">Ray Gen Logic — bağımsız olarak geliştirilmiştir.</p>
+    <p class="foottag" data-i18n="footerTagline">Ray Gen Logic bağımsız olarak geliştirilmiştir.</p>
   </div>
 </footer>
 
@@ -154,90 +156,130 @@ footer{border-top:1px solid var(--line);padding:36px 0 56px}
 (function(){
 "use strict";
 
-// ---- store links: fill these in when apps go live, nothing else needs to change ----
-var STORE_LINKS = { ios: null, android: null };
+// ---- store links (both live since 2026-09-30) ----
+var STORE_LINKS = {
+  ios: 'https://apps.apple.com/app/ray-gen-logic/id6807128983',
+  android: 'https://play.google.com/store/apps/details?id=com.raygenlogic'
+};
+// Official badge files in /assets/badges/, unmodified. Apple has no Hindi badge, so hi uses
+// the English one. The Google PNGs are 646x250 with transparent padding: vis is the visible
+// badge height in the file, top/side the padding around it (measured from the alpha channel).
+var BADGES = {
+  ios: { en:'app-store-en.svg', tr:'app-store-tr.svg', ptbr:'app-store-ptbr.svg', hi:'app-store-en.svg' },
+  android: {
+    en:   { file:'google-play-en.png',   vis:168, top:41, side:41 },
+    tr:   { file:'google-play-tr.png',   vis:192, top:29, side:0 },
+    ptbr: { file:'google-play-ptbr.png', vis:192, top:29, side:0 },
+    hi:   { file:'google-play-hi.png',   vis:192, top:29, side:0 }
+  }
+};
 
 // ---- i18n ----
 var I18N = {
   tr: {
-    tagline:"Işını yansıt, hedefi vur.",
-    aboutTitle:"Bir ışın yansıtma bulmacası",
-    aboutBody:"Aynaları yerleştir, ışını hedefe ulaştır. Her bölüm tek bir doğru çözümle seni bekliyor — bazen düz bakış yeter, bazen ışını üç kez sektirmen gerekir.",
-    feature1Title:"Basit kurallar", feature1Body:"Dokun, aynayı döndür, ateşle. Öğrenmesi bir dakika sürer.",
-    feature2Title:"Yüzlerce bölüm", feature2Body:"Kolaydan zora, her biri elle tasarlanmış bir bulmaca.",
-    feature3Title:"Güçlendirmeler", feature3Body:"Takılırsan tam önizleme veya hassas nişanla yardım al.",
-    downloadTitle:"İndir", comingSoon:"Yakında",
-    footerTagline:"Ray Gen Logic — bağımsız olarak geliştirilmiştir.",
-    privacyLinkText:"Gizlilik", supportLinkText:"Destek"
+    tagline:"Işını yansıt, hedefi vur",
+    aboutTitle:"Işını ateşle, aynalardan yansıt, hedefi vur",
+    aboutBody:"Ray Gen Logic bir açı, yansıma ve zamanlama bulmacası. Her bölüm sana küçük bir sahne gösterir: bir ışın kaynağı, birkaç ayna, belki bir iki portal ve parlayan bir hedef halkası. Joystick'i çevirip açıyı seçersin, bırakırsın ve ışının yolculuğunu izlersin. Işın dokunduğu her aynadan seker, portala girip başka yerden çıkar ve ya hedefe oturur ya da yanından geçip gider. Süre yok, acele yok. Düşün, nişan al, bırak.",
+    feature1Title:"Nasıl oynanır",
+    feature1Body:"Joystick'i çevirerek açıyı ayarla. Bırak ve ateşle. Işın kendi başına uçar, aynaya çarptıkça seker.",
+    feature2Title:"Binlerce bölüm",
+    feature2Body:"Bölüm paketi yumuşak başlar ve seninle büyür. İlk bölümler her seferinde tek bir fikir öğretir.",
+    feature3Title:"İhtiyacın olduğunda güçler",
+    feature3Body:"Hassas nişan · Tam önizleme · Ekstra atış",
+    downloadTitle:"İndir",
+    footerTagline:"Ray Gen Logic bağımsız olarak geliştirilmiştir.",
+    privacyLinkText:"Gizlilik",
+    supportLinkText:"Destek",
+    appStoreAlt:"App Store'dan indirin",
+    googlePlayAlt:"Google Play'den indirin"
   },
   en: {
-    tagline:"Bend the beam. Reach the light.",
-    aboutTitle:"A beam-reflection puzzle",
-    aboutBody:"Place mirrors, guide the beam, reach the goal. Every level has exactly one solution — sometimes a straight look is enough, sometimes you need three bounces.",
-    feature1Title:"Simple rules", feature1Body:"Tap, rotate a mirror, fire. Takes a minute to learn.",
-    feature2Title:"Hundreds of levels", feature2Body:"Easy to hard, each one hand-designed.",
-    feature3Title:"Power-ups", feature3Body:"Stuck? Get a full preview or precision aim.",
-    downloadTitle:"Get the app", comingSoon:"Coming soon",
-    footerTagline:"Ray Gen Logic — independently developed.",
-    privacyLinkText:"Privacy", supportLinkText:"Support"
-  },
-  ru: {
-    tagline:"Направь луч. Достигни света.",
-    aboutTitle:"Головоломка с отражением луча",
-    aboutBody:"Расставляй зеркала, направляй луч, достигай цели. У каждого уровня ровно одно решение — иногда достаточно прямого взгляда, иногда нужно три отражения.",
-    feature1Title:"Простые правила", feature1Body:"Коснись, поверни зеркало, выстрели. Учится за минуту.",
-    feature2Title:"Сотни уровней", feature2Body:"От лёгких до сложных — каждый сделан вручную.",
-    feature3Title:"Усиления", feature3Body:"Застрял? Возьми полный предпросмотр или точное прицеливание.",
-    downloadTitle:"Скачать", comingSoon:"Скоро",
-    footerTagline:"Ray Gen Logic — независимая разработка.",
-    privacyLinkText:"Конфиденциальность", supportLinkText:"Поддержка"
+    tagline:"Bounce the beam, hit the goal",
+    aboutTitle:"Fire the beam, bounce it off mirrors, hit the goal",
+    aboutBody:"Ray Gen Logic is a puzzle game about angles, reflections and timing. Every level shows you a small space: an emitter, a few mirrors, maybe a portal or two, and a glowing goal ring. Turn the joystick to choose the angle, let go, and watch the beam travel. It bounces off every mirror it touches, slips through portals and comes out somewhere else, and either lands in the goal or flies past it. There is no timer and no rush. Think, aim, release.",
+    feature1Title:"How to play",
+    feature1Body:"Turn the joystick to set the angle. Let go to fire. The beam flies on its own and bounces wherever it meets a mirror.",
+    feature2Title:"Thousands of levels",
+    feature2Body:"The level pack starts gentle and grows with you. Early levels teach one idea at a time.",
+    feature3Title:"Power-ups when you need them",
+    feature3Body:"Precision aim · Full preview · Extra shot",
+    downloadTitle:"Get the app",
+    footerTagline:"Ray Gen Logic is independently developed.",
+    privacyLinkText:"Privacy",
+    supportLinkText:"Support",
+    appStoreAlt:"Download on the App Store",
+    googlePlayAlt:"Get it on Google Play"
   },
   ptbr: {
-    tagline:"Reflita o feixe. Alcance a luz.",
-    aboutTitle:"Um quebra-cabeça de reflexão de luz",
-    aboutBody:"Posicione espelhos, guie o feixe, alcance o objetivo. Cada fase tem exatamente uma solução — às vezes basta um olhar direto, às vezes você precisa de três reflexos.",
-    feature1Title:"Regras simples", feature1Body:"Toque, gire um espelho, atire. Aprende-se em um minuto.",
-    feature2Title:"Centenas de fases", feature2Body:"Do fácil ao difícil, cada uma desenhada à mão.",
-    feature3Title:"Power-ups", feature3Body:"Travou? Use a pré-visualização completa ou a mira de precisão.",
-    downloadTitle:"Baixe o app", comingSoon:"Em breve",
-    footerTagline:"Ray Gen Logic — desenvolvido de forma independente.",
-    privacyLinkText:"Privacidade", supportLinkText:"Suporte"
+    tagline:"Reflita o raio, acerte o alvo",
+    aboutTitle:"Dispare o raio, reflita nos espelhos, acerte o alvo",
+    aboutBody:"Ray Gen Logic é um quebra-cabeça de ângulos, reflexos e tempo. Cada fase mostra um pequeno cenário: um emissor, alguns espelhos, talvez um ou dois portais e um anel de alvo brilhante. Gire o joystick para escolher o ângulo, solte e observe a viagem do raio. Ele reflete em cada espelho que toca, entra em portais e sai em outro lugar, e ou pousa no alvo ou passa direto. Não há cronômetro nem pressa. Pense, mire, solte.",
+    feature1Title:"Como jogar",
+    feature1Body:"Gire o joystick para ajustar o ângulo. Solte para disparar. O raio voa sozinho e reflete sempre que encontra um espelho.",
+    feature2Title:"Milhares de fases",
+    feature2Body:"O pacote de fases começa suave e cresce com você. As primeiras ensinam uma ideia de cada vez.",
+    feature3Title:"Poderes quando precisar",
+    feature3Body:"Mira de precisão · Prévia completa · Tiro extra",
+    downloadTitle:"Baixe o app",
+    footerTagline:"Ray Gen Logic é desenvolvido de forma independente.",
+    privacyLinkText:"Privacidade",
+    supportLinkText:"Suporte",
+    appStoreAlt:"Baixar na App Store",
+    googlePlayAlt:"Disponível no Google Play"
   },
   hi: {
-    tagline:"किरण को मोड़ो। रोशनी तक पहुँचो।",
-    aboutTitle:"एक बीम-रिफ्लेक्शन पज़ल",
-    aboutBody:"आईने रखो, किरण को राह दिखाओ, लक्ष्य तक पहुँचो। हर लेवल का हल एक ही होता है — कभी सीधी नज़र काफ़ी होती है, कभी तीन बार टकराना पड़ता है।",
-    feature1Title:"आसान नियम", feature1Body:"टैप करो, आईना घुमाओ, फायर करो। सीखने में बस एक मिनट लगता है।",
-    feature2Title:"सैकड़ों लेवल", feature2Body:"आसान से मुश्किल तक, हर एक हाथ से डिज़ाइन किया गया।",
-    feature3Title:"पावर-अप्स", feature3Body:"अटक गए? फुल प्रीव्यू या प्रिसिज़न एम लो।",
-    downloadTitle:"ऐप डाउनलोड करो", comingSoon:"जल्द आ रहा है",
-    footerTagline:"Ray Gen Logic — स्वतंत्र रूप से बनाया गया।",
-    privacyLinkText:"प्राइवेसी", supportLinkText:"सपोर्ट"
+    tagline:"किरण उछालो, निशाना लगाओ",
+    aboutTitle:"किरण छोड़ो, आईनों से उछालो, निशाना लगाओ",
+    aboutBody:"Ray Gen Logic कोण, परावर्तन और टाइमिंग की पहेली है। हर स्तर एक छोटा सा दृश्य दिखाता है: एक किरण स्रोत, कुछ आईने, शायद एक-दो पोर्टल और एक चमकता लक्ष्य वलय। जॉयस्टिक घुमाकर कोण चुनो, छोड़ो और किरण का सफ़र देखो। यह हर आईने से टकराकर उछलती है, पोर्टल में जाकर कहीं और निकलती है, और या तो लक्ष्य में उतरती है या पास से निकल जाती है। कोई टाइमर नहीं, कोई जल्दी नहीं। सोचो, निशाना लो, छोड़ो।",
+    feature1Title:"कैसे खेलें",
+    feature1Body:"जॉयस्टिक घुमाकर कोण सेट करो। छोड़ो और किरण चली। यह अपने आप उड़ती है और जहाँ आईना मिले, वहाँ उछलती है।",
+    feature2Title:"हज़ारों स्तर",
+    feature2Body:"स्तरों का पैक आसान शुरू होता है और तुम्हारे साथ बढ़ता है। शुरुआती स्तर एक बार में एक बात सिखाते हैं।",
+    feature3Title:"ज़रूरत पड़ने पर शक्तियाँ",
+    feature3Body:"सटीक निशाना · पूरा पूर्वावलोकन · अतिरिक्त शॉट",
+    downloadTitle:"ऐप डाउनलोड करो",
+    footerTagline:"Ray Gen Logic स्वतंत्र रूप से बनाया गया है।",
+    privacyLinkText:"प्राइवेसी",
+    supportLinkText:"सपोर्ट",
+    appStoreAlt:"Download on the App Store",
+    googlePlayAlt:"इसे Google Play पर पाएं"
   }
 };
-var SUPPORTED = ['tr','en','ru','ptbr','hi'];
+var SUPPORTED = ['tr','en','ptbr','hi'];
 
 function applyLang(lang){
-  var dict = I18N[lang] || I18N.en;
+  if(!I18N[lang]) lang = 'en';
+  var dict = I18N[lang];
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var v = dict[el.dataset.i18n];
     if(v) el.textContent = v;
   });
   document.documentElement.lang = (lang==='ptbr' ? 'pt-BR' : lang);
-  renderBadges(dict);
+  renderBadges(dict, lang);
   var sel = document.getElementById('langpick');
   if(sel.value !== lang) sel.value = lang;
   try{ localStorage.setItem('rgl-lang', lang); }catch(e){}
 }
 
-function renderBadges(dict){
+function badgeLink(href, src, alt, style){
+  var a = document.createElement('a');
+  a.className = 'badge'; a.href = href; a.target = '_blank'; a.rel = 'noopener';
+  var img = document.createElement('img');
+  img.src = '/assets/badges/' + src; img.alt = alt; img.setAttribute('style', style);
+  a.appendChild(img);
+  return a;
+}
+
+function renderBadges(dict, lang){
   var el = document.getElementById('badges');
-  el.innerHTML =
-    '<span class="badge">App Store<span class="soon">'+dict.comingSoon+'</span></span>'+
-    '<span class="badge">Google Play<span class="soon">'+dict.comingSoon+'</span></span>';
-  if(STORE_LINKS.ios || STORE_LINKS.android){
-    // Swap to real <a href> badges here once the apps are live.
-  }
+  var g = BADGES.android[lang];
+  // Google file pixels -> CSS, scaled so the visible badge is exactly --bh tall.
+  function px(n){ return 'calc(var(--bh) * ' + (n / g.vis).toFixed(4) + ')'; }
+  el.replaceChildren(
+    badgeLink(STORE_LINKS.ios, BADGES.ios[lang], dict.appStoreAlt, 'height:var(--bh);width:auto'),
+    badgeLink(STORE_LINKS.android, g.file, dict.googlePlayAlt,
+      'height:' + px(250) + ';width:auto;margin:' + px(-g.top) + ' ' + px(-g.side))
+  );
 }
 
 function detectLang(){
@@ -245,7 +287,6 @@ function detectLang(){
   if(saved && SUPPORTED.indexOf(saved)>=0) return saved;
   var nav = (navigator.language||'en').toLowerCase();
   if(nav.indexOf('tr')===0) return 'tr';
-  if(nav.indexOf('ru')===0) return 'ru';
   if(nav.indexOf('hi')===0) return 'hi';
   if(nav.indexOf('pt')===0) return 'ptbr';
   return 'en';
