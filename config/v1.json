@@ -12,9 +12,9 @@
     },
     "offers": {
       "adFreeOfferEnabled": true,
-      "starterPackEnabled": false
+      "starterPackEnabled": true
     },
     "version": 1
   },
-  "sig": "6cGrVzAoKCe/RIkEfO+BuBQd/B/E2NKVGwnwgOyJPRBlzZ+J5RrZZ7H5B/tm+HMFSmt0DJ7Xh70oogyapeYfCA=="
+  "sig": "3csleuLiK9zhLhVLa/lkH/zznNBpuXq8scFPZLKFrTHaLVvlAl101gfAUZzA/67KcK5JjE2yx4EArTL/T5vmBg=="
 }
